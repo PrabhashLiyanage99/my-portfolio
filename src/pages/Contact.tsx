@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 
+const eServiceId = process.env.EMAIL_SERVICE_ID;
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -19,7 +20,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     emailjs
       .send(
-        'service_3plnvaq', // Replace with your EmailJS service ID
+       eServiceId || '', // Replace with your EmailJS service ID
         'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
         formData,
         'YOUR_USER_ID' // Replace with your EmailJS user ID
